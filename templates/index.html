@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Image Classifier </title>
+    <link rel="shortcut icon" href="data:image/png;base64,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" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #1b2d6b;
+            --secondary-color: #007bff;
+            --light-color: #eff2f9;
+            --dark-color: #363e75;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-weight: 400;
+        }
+
+        .app-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .image-preview {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            border: 2px dashed var(--primary-color);
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            background-color: var(--light-color);
+        }
+
+        .image-preview img, 
+        .image-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .image-preview .placeholder {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .image-preview .placeholder i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .results-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .result-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+        }
+
+        .result-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .prediction-image {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+        }
+
+        .prediction-details {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .confidence-meter {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .confidence-level {
+            height: 100%;
+            background-color: var(--success-color);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            display: none;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .logo {
+            height: 40px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+            }
+            
+            .results-container {
+                flex-direction: column;
+            }
+            
+            .result-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kidney Image Classifier</h1>
+        </header>
+
+        <div class="app-container">
+            <div class="upload-section">
+                <div class="image-preview" id="imagePreview">
+                    <div class="placeholder">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Upload or capture an image for analysis</p>
+                    </div>
+                    <video autoplay id="video" poster="https://img.freepik.com/free-vector/group-young-people-posing-photo_52683-18824.jpg?size=338&ext=jpg"></video>
+                    <img src="" id="photo" alt="Preview">
+                    <canvas style="display:none;" id="canvas"></canvas>
+                </div>
+
+                <div class="controls">
+                    <button type="button" class="btn btn-primary" id="uploadBtn">
+                        <i class="fas fa-upload"></i> Upload Image
+                    </button>
+                    <button type="button" class="btn btn-success" id="predictBtn">
+                        <i class="fas fa-brain"></i> Analyze
+                    </button>
+                </div>
+
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <input type="hidden" id="apiUrl" value="../predict">
+            </div>
+
+            <div class="results-container">
+                <div class="result-card">
+                    <h3>Analysis Results</h3>
+                    <div class="prediction-image-container">
+                        <img src="" class="prediction-image" id="resultImage" style="display: none;">
+                    </div>
+                    <div class="prediction-details" id="resultDetails">
+                        <p>No analysis performed yet. Upload an image and click "Analyze".</p>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>Detailed Report</h3>
+                    <div id="confidenceMeters"></div>
+                    <div class="prediction-details" id="jsonResults">
+                        <!-- JSON results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAlCAMAAABBJDpuAAAAVFBMVEX/fgD/iQA7NzIyMjMnNYInNYEnNYInNYEzMzInNYQnNYETJzsnNYIwN1wxMjNoTis4O1YrNm0xOF47PE9DP0dEQEVpTVkAJJ4nNYEOLJHJbiAzMzOmmmHRAAAAFnRSTlOh/vu+986oen9fP2UqEzQkFAIDAAEEILVBJQAAA3FJREFUWMPNmO2WoyAMQG0VBARtdVRs3/89NwkgaF1rd2aOm18tIrnkgwSz7n+R7LcV1ELkeS7E7VySRlyfQXJhTiO55c+liP4cEuH1X8E7gaV+S3Jv2zYZ/Vr+/Sdx2vP6doc/fSPcf/GOpLSFVXFUW8t+giRP47TOd60yk1hbxIhSP0ACKPWrvw7YBIT/lcQY84G3Wk17ugWQfg5UsQJpjflKSLQi7xTWyk0SXTJ4VnB5D1yccxmp4Z+mX5KGNS+SPXVNll0ulyxL0wYmloBB6zL/MpCoAgjAJiUM6w0SboMwPUdRogvNKcNM3smFdRvEcJJkKcflQa+X0pNIfBGW0zKqjyQtw4VLKQlI7ZLgdrRNSZDjMQx2GB4pCkxkCrfGWUTJ0Egan6muCHgJCUwtnCk0mrJ9Q8K5LUqtdSfynkAedhynaRqngVDaXLiJEAzkFkM71IuIlWRYtSQpbXSZDvQ7JPCei9brs+oaABkn74LRIkpFaVxGnzjvIxTYREOoEwn5r01JTDRTcO87Eu3zNUeTPKZpjrIRrNIDCjzALbPk7LJMIokOEQu2K7yKQAKvFDF9pVe0R+LGb7h1MMkw2ijjA/1zhSfSphvEAChXJEhAqwYStIJWXnTpvbdH4hTUwSQ2JRmQpILDLYbB7J41SYiLcNozu5Z3JMo7RxBJahI7WSRByCMkqJt9hySESbVJcvmARJGFExJmdBSl2oM2+T4JLWfgaGFptizlPUm1FydHSdyZ7UnS4ySph2kS0kJrkvr5NJg7dnrJnfxgxPozRPGtkyPNOxtaiDvbIAF9L+5B5zTI2BwlwXmM+U3zReav3o0F8oUEFFZ42McDZYomOUziFmezgWyo251Uc1nyKJol7URCEvIYUEbHYaEGQi9C9egwCdVfHwiaajfjKMUcHcRacCylhWJbJDfq47EEDhYqoIWjHnwDXZPpPiChPQelLU+Cbm4w50FmYgkvFwpiWwCC/Um/SLcNElOC9RVj6qWpCiEMvRUK4zLpdKmPw8rVldy/qxjn60wLrVLWJIPLiZJRr3fsvnOHPvare+lB93tb37T20D82jqOt+zNuXhuNvNhp7X+PpHb3rvV9R5xjE2SpyCN9ffQO+GtWIZr5Xnytz4gTMIRYfys47/uJEXny/aQ/95tSUwmU+uRvSp/IHzQqZYpYrQmxAAAAAElFTkSuQmCC" alt="Company Logo" class="logo">
+        </footer>
+    </div>
+
+    <div id="loading">
+        <div class="spinner"></div>
+        <p class="loading-text">Analyzing image...</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const $uploadBtn = $('#uploadBtn');
+            const $predictBtn = $('#predictBtn');
+            const $fileInput = $('#fileInput');
+            const $imagePreview = $('#imagePreview');
+            const $photo = $('#photo');
+            const $video = $('#video');
+            const $placeholder = $('.placeholder');
+            const $resultImage = $('#resultImage');
+            const $resultDetails = $('#resultDetails');
+            const $jsonResults = $('#jsonResults');
+            const $confidenceMeters = $('#confidenceMeters');
+            const $loading = $('#loading');
+            
+            let base64Data = "";
+
+            // Upload button click handler
+            $uploadBtn.click(function() {
+                $fileInput.click();
+            });
+
+            // File input change handler
+            $fileInput.change(function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        // Hide placeholder and video, show image
+                        $placeholder.hide();
+                        $video.hide();
+                        $photo.attr('src', e.target.result).show();
+                        
+                        // Create canvas to convert to base64
+                        const img = new Image();
+                        img.onload = function() {
+                            const canvas = document.createElement('canvas');
+                            const ctx = canvas.getContext('2d');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            ctx.drawImage(img, 0, 0);
+                            base64Data = canvas.toDataURL('image/jpeg', 1.0).replace(/^data:image.+;base64,/, '');
+                        };
+                        img.src = e.target.result;
+                    };
+                    
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Predict button click handler
+            $predictBtn.click(function() {
+                if (!base64Data) {
+                    alert('Please upload an image first');
+                    return;
+                }
+                
+                sendRequest(base64Data);
+            });
+
+            // Function to send request to API
+            function sendRequest(imageData) {
+                const url = $('#apiUrl').val();
+                
+                // Show loading indicator
+                $loading.show();
+                
+                // Clear previous results
+                $resultDetails.html('<p>Processing image...</p>');
+                $jsonResults.empty();
+                $confidenceMeters.empty();
+                $resultImage.hide();
+                
+                // Send AJAX request
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ image: imageData }),
+                    success: function(response) {
+                        // Hide loading indicator
+                        $loading.hide();
+                        
+                        try {
+                            // Display processed image if available
+                            if (response[1] && response[1].image) {
+                                $resultImage.attr('src', 'data:image/jpeg;base64,' + response[1].image).show();
+                            }
+                            
+                            // Display prediction results
+                            if (response[0]) {
+                                const prediction = response[0].image;
+                                $resultDetails.html(`
+                                    <h4>Diagnosis: <strong>${prediction}</strong></h4>
+                                    <p>This AI analysis suggests the image shows characteristics of ${prediction}.</p>
+                                    <p>Please consult with a medical professional for confirmation.</p>
+                                `);
+                                
+                                // If we have confidence scores (example structure)
+                                if (response[0].confidence) {
+                                    $confidenceMeters.empty();
+                                    for (const [className, confidence] of Object.entries(response[0].confidence)) {
+                                        const percent = (confidence * 100).toFixed(2);
+                                        $confidenceMeters.append(`
+                                            <div class="mb-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>${className}</span>
+                                                    <span>${percent}%</span>
+                                                </div>
+                                                <div class="confidence-meter">
+                                                    <div class="confidence-level" style="width: ${percent}%"></div>
+                                                </div>
+                                            </div>
+                                        `);
+                                    }
+                                }
+                                
+                                // Display raw JSON data
+                                $jsonResults.html(`<pre>${JSON.stringify(response[0], null, 2)}</pre>`);
+                            }
+                        } catch (e) {
+                            console.error('Error processing response:', e);
+                            $resultDetails.html('<p class="text-danger">Error processing results. Please try again.</p>');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        $loading.hide();
+                        $resultDetails.html(`<p class="text-danger">Error: ${error}</p>`);
+                        console.error('API Error:', error);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
