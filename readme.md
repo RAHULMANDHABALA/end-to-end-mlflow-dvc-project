@@ -151,3 +151,15 @@ python main.py
   Ensure the data source URL in `config.yaml` is correct and accessible.
 
 ---
+
+## MLflow Image
+
+
+![Screenshot (26)](https://github.com/user-attachments/assets/fb3b0120-bb10-4afe-a617-2b33fe9ff4c4)
+
+
+## App Predection Image
+  
+![Screenshot 2025-06-10 235616](https://github.com/user-attachments/assets/fd9973c4-9b18-4971-9571-19d4408609f2)
+
+
