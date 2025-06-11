@@ -71,7 +71,7 @@ kidney_disease_classification_DL_MLFLOW/
 
 ### 1. **Clone the Repository**
 ```sh
-git clone https://github.com/RAHULMANDHABALA/kidney_disease_classification_DL_MLFLOW.git
+git clone https://github.com/RAHULMANDHABALA/end-to-end-mlflow-dvc-project.git
 cd kidney_disease_classification_DL_MLFLOW
 ```
 
@@ -84,14 +84,14 @@ pip install -r requirements.txt
 - Get your DagsHub token from [DagsHub Tokens](https://dagshub.com/user/settings/tokens).
 - Set environment variables (Windows CMD example):
   ```sh
-  set MLFLOW_TRACKING_URI=https://dagshub.com/mandhabalarahul/kidney_disease_classification_DL_MLFLOW.mlflow
+  set MLFLOW_TRACKING_URI=https://dagshub.com/mandhabalarahul/end-to-end-mlflow-dvc-project.mlflow
   set MLFLOW_TRACKING_USERNAME=mandhabalarahul
   set MLFLOW_TRACKING_PASSWORD=your_dagshub_token
   ```
 - Or add these lines at the top of `main.py` (not recommended for shared code):
   ```python
   import os
-  os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/mandhabalarahul/kidney_disease_classification_DL_MLFLOW.mlflow"
+  os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/mandhabalarahul/end-to-end-mlflow-dvc-project.mlflow"
   os.environ["MLFLOW_TRACKING_USERNAME"] = "mandhabalarahul"
   os.environ["MLFLOW_TRACKING_PASSWORD"] = "your_dagshub_token"
   ```
