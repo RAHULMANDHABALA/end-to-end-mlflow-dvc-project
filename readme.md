@@ -61,6 +61,9 @@ kidney_disease_classification_DL_MLFLOW/
     - Loads the trained model and evaluates on validation data.
     - Logs metrics and parameters to MLflow (DagsHub backend).
     - Optionally registers the model in the MLflow Model Registry.
+  
+![Screenshot 2025-06-10 032157](https://github.com/user-attachments/assets/d9268d05-f658-4352-b55d-aaeb69bab9e0)
+
 
 ---
 
