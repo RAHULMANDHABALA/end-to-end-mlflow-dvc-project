@@ -66,6 +66,11 @@ kidney_disease_classification_DL_MLFLOW/
 
 
 ---
+##  Large Data Handling Strategy
+![deepseek_mermaid_20250610_13223e](https://github.com/user-attachments/assets/a6ceb146-c448-40fb-9729-6bcd336466f7)
+
+---
+
 
 ## 🧑‍💻 How to Use
 
